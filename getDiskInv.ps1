@@ -1,7 +1,8 @@
-$computername = 'localhost'
-
+param (
+    $computername = 'localhost'
+)
 Get-WmiObject -class Win32_LogicalDisk `
- -computername $computername `
+-computername $computername `
 -filter "drivetype=3" |
 Sort-Object -property DeviceID |
 Format-Table -property DeviceID,
